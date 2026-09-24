@@ -1,11 +1,14 @@
 {
   "name": "written-as-spoken",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Authentic Egyptian Arabic marketing voice engine, paired with linked skills: Conversational Narrative, Creator Workbench, and No AI Slop.",
   "type": "module",
   "scripts": {
-    "test": "bun scripts/selftest.mjs",
-    "lint": "bun scripts/lint.mjs"
+    "test": "bun scripts/selftest.mjs && bun test",
+    "lint": "bun scripts/lint.mjs",
+    "route": "bun scripts/route.mjs",
+    "check": "bun scripts/check-links.mjs && bun scripts/sync-links.mjs --check",
+    "sync": "bun scripts/sync-links.mjs"
   },
   "keywords": [
     "writing",

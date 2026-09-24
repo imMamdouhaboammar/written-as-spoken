@@ -1,0 +1,117 @@
+[
+  {
+    "request": "اكتبلي بوست بعد الساعة 5 عن إن الـDashboards الكتير بتأخر القرار",
+    "intent": "post"
+  },
+  {
+    "request": "حوّل الفكرة دي لبوست: الـMeetings اللي ملهاش Agenda",
+    "intent": "post"
+  },
+  {
+    "request": "راجع البوست ده بستايل written as spoken",
+    "intent": "review_draft"
+  },
+  {
+    "request": "اعملي audit للبوست ده وقولي فين الـAI slop من غير ما تعدل",
+    "intent": "audit_only"
+  },
+  {
+    "request": "اكتبلي الجزء التاني من سلسلة PyMC Marketing MCP",
+    "intent": "series_episode"
+  },
+  {
+    "request": "اشرحلي الـIncrementality في بوست للماركترز",
+    "intent": "technical_explainer"
+  },
+  {
+    "request": "عندي notes من Audit لحساب Healthcare عايزها ديب دايف",
+    "intent": "diagnostic_deep_dive"
+  },
+  {
+    "request": "بوست لانش للـPlaybook الجديد مع CTA",
+    "intent": "offer_post"
+  },
+  {
+    "request": "اكتب بوست من الـsecond brain بتاعي عن التسعير",
+    "intent": "from_memory"
+  },
+  {
+    "request": "عايز أفكار بوستات للشهر الجاي",
+    "intent": "ideas"
+  },
+  {
+    "request": "اديني 6 هوكس للبوست ده",
+    "intent": "hooks"
+  },
+  {
+    "request": "حوّل البوست ده لكاروسيل",
+    "intent": "carousel"
+  },
+  {
+    "request": "اكتبلي سكريبت ريل عن الـCPL",
+    "intent": "reel_script"
+  },
+  {
+    "request": "ده تفريغ فويس نوت قلته في العربية، طلعه بوست",
+    "intent": "transcript_to_post"
+  },
+  {
+    "request": "اكتبلي أول كومنت تحت البوست",
+    "intent": "pinned_comment"
+  },
+  {
+    "request": "احفظ التعديل ده من هنا ورايح",
+    "intent": "save_learning"
+  },
+  {
+    "request": "بوست عن قصة Walmart والـObjections للسوق السعودي",
+    "intent": "post",
+    "modifiers": [
+      "saudi",
+      "verify"
+    ],
+    "chain_includes": [
+      "arabic-style-curator",
+      "story-researcher"
+    ]
+  },
+  {
+    "request": "بوست فيسبوك قصير عن الـReports الأسبوعية",
+    "intent": "post",
+    "modifiers": [
+      "facebook"
+    ]
+  },
+  {
+    "request": "بوست طبيعي عن الـBrief",
+    "intent": "post"
+  },
+  {
+    "request": "إيه اللي حصل الأسبوع ده في Google Ads؟ عايز بوست عنه",
+    "intent": "trend_topic"
+  },
+  {
+    "request": "اعملي score للبوست ده قبل ما أنشره",
+    "intent": "score_post"
+  },
+  {
+    "request": "حللي الـanalytics export بتاع LinkedIn",
+    "intent": "analytics"
+  },
+  {
+    "request": "عايز infographic للبوست ده",
+    "intent": "visual"
+  },
+  {
+    "request": "حوّل الـPlaybook لعرض تقديمي",
+    "intent": "presentation"
+  },
+  {
+    "request": "اكتبلي newsletter عن الـMMM",
+    "intent": "long_form_narrative"
+  },
+  {
+    "request": "ابني second brain من الـChatGPT export",
+    "intent": "workspace_setup"
+  }
+]

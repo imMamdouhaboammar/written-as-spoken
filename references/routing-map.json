@@ -1,0 +1,879 @@
+{
+  "version": 2,
+  "front_door": "written-as-spoken",
+  "notes": "Machine-readable routing graph for the Written as Spoken suite. scripts/route.mjs classifies a request against it, scripts/lint.mjs reads feedback.lint to attach a repair owner to every finding, and scripts/check-links.mjs fails the build when any node, path or edge is broken. Signals are matched after Arabic normalisation (see route.mjs). Ties are broken by priority: intents that name an output format (2) beat intents that name a topic (1).",
+  "nodes": {
+    "written-as-spoken": {
+      "path": "SKILL.md",
+      "kind": "skill",
+      "role": "voice owner: intake, angle, draft, deliver"
+    },
+    "lint": {
+      "path": "scripts/lint.mjs",
+      "kind": "script",
+      "role": "mechanical gate, BLOCK findings stop delivery"
+    },
+    "voice-critic": {
+      "path": "agents/voice-critic.md",
+      "kind": "agent",
+      "role": "cold read, line-level fixes with a repair owner per fix"
+    },
+    "story-researcher": {
+      "path": "agents/story-researcher.md",
+      "kind": "agent",
+      "role": "verifies anchors, numbers, quotes and myths"
+    },
+    "slop-router": {
+      "path": "skills/no-ai-slop/skills/slop-router/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "sub-router for anti-slop work outside a post"
+    },
+    "slop-audit": {
+      "path": "skills/no-ai-slop/skills/slop-audit/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "evidence-only diagnosis"
+    },
+    "voice-preserving-edit": {
+      "path": "skills/no-ai-slop/skills/voice-preserving-edit/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "protects meaning and voice during edits"
+    },
+    "plain-spoken-writing": {
+      "path": "skills/no-ai-slop/skills/plain-spoken-writing/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "sayability and spoken thought order"
+    },
+    "arabic-style-curator": {
+      "path": "skills/no-ai-slop/skills/arabic-style-curator/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "dialect, Fusha drift, code-switching"
+    },
+    "commercial-copy-director": {
+      "path": "skills/no-ai-slop/skills/commercial-copy-director/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "offer, proof, objection and CTA logic"
+    },
+    "visual-content-anti-slop": {
+      "path": "skills/no-ai-slop/skills/visual-content-anti-slop/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "slides, visuals, RTL layout"
+    },
+    "slop-pattern-repair": {
+      "path": "skills/no-ai-slop/skills/slop-pattern-repair/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "targeted structure and phrase repair"
+    },
+    "strict-human-output": {
+      "path": "skills/no-ai-slop/skills/strict-human-output/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "house-style policy, punctuation, banned words, evidence"
+    },
+    "slop-quality-gate": {
+      "path": "skills/no-ai-slop/skills/slop-quality-gate/SKILL.md",
+      "kind": "skill",
+      "suite": "no-ai-slop",
+      "role": "fidelity and over-editing check after heavy edits"
+    },
+    "conversational-narrative-router": {
+      "path": "skills/conversational-narrative/skills/conversational-narrative-router/SKILL.md",
+      "kind": "skill",
+      "suite": "conversational-narrative",
+      "role": "sub-router for deep-dive narrative work"
+    },
+    "diagnostic-deep-dive-writer": {
+      "path": "skills/conversational-narrative/skills/diagnostic-deep-dive-writer/SKILL.md",
+      "kind": "skill",
+      "suite": "conversational-narrative",
+      "role": "friction to diagnosis to decision"
+    },
+    "technical-concept-storyteller": {
+      "path": "skills/conversational-narrative/skills/technical-concept-storyteller/SKILL.md",
+      "kind": "skill",
+      "suite": "conversational-narrative",
+      "role": "explains a technical concept without a glossary tone"
+    },
+    "series-continuity-writer": {
+      "path": "skills/conversational-narrative/skills/series-continuity-writer/SKILL.md",
+      "kind": "skill",
+      "suite": "conversational-narrative",
+      "role": "carries the open loop between episodes"
+    },
+    "voice-fidelity-reviewer": {
+      "path": "skills/conversational-narrative/skills/voice-fidelity-reviewer/SKILL.md",
+      "kind": "skill",
+      "suite": "conversational-narrative",
+      "role": "reviews long technical posts for voice drift"
+    },
+    "creator-router": {
+      "path": "skills/creator-workbench/skills/creator-router/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "sub-router for memory, formats and analytics"
+    },
+    "workspace-recall": {
+      "path": "skills/creator-workbench/skills/workspace-recall/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "pulls the smallest relevant stored context"
+    },
+    "create-from-brain": {
+      "path": "skills/creator-workbench/skills/create-from-brain/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "grounds a piece in stored notes"
+    },
+    "content-matrix": {
+      "path": "skills/creator-workbench/skills/content-matrix/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "idea bank from pillars x formats"
+    },
+    "niche-research": {
+      "path": "skills/creator-workbench/skills/niche-research/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "what happened this week in the niche"
+    },
+    "hook-generator": {
+      "path": "skills/creator-workbench/skills/hook-generator/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "alternative first lines"
+    },
+    "carousel-generator": {
+      "path": "skills/creator-workbench/skills/carousel-generator/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "slide-by-slide carousel"
+    },
+    "reels-scripting": {
+      "path": "skills/creator-workbench/skills/reels-scripting/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "short video script beats"
+    },
+    "voiceprint": {
+      "path": "skills/creator-workbench/skills/voiceprint/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "keeps literal wording from a voice note or transcript"
+    },
+    "pinned-comment": {
+      "path": "skills/creator-workbench/skills/pinned-comment/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "first comment that extends the post"
+    },
+    "post-scorer": {
+      "path": "skills/creator-workbench/skills/post-scorer/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "scores a draft against history or a rubric"
+    },
+    "analytics-dashboard": {
+      "path": "skills/creator-workbench/skills/analytics-dashboard/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "LinkedIn export analysis"
+    },
+    "graphic-designer": {
+      "path": "skills/creator-workbench/skills/graphic-designer/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "post visual concept"
+    },
+    "infographic-generator": {
+      "path": "skills/creator-workbench/skills/infographic-generator/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "infographic brief"
+    },
+    "save-progress": {
+      "path": "skills/creator-workbench/skills/save-progress/SKILL.md",
+      "kind": "skill",
+      "suite": "creator-workbench",
+      "role": "persists corrections, only on explicit request"
+    }
+  },
+  "intents": {
+    "post": {
+      "label": "new post in the voice (default)",
+      "architecture": "A",
+      "chain": [
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "اكتبلي بوست",
+        "بوست",
+        "بعد الساعه 5",
+        "بعد_الساعه_5",
+        "written as spoken",
+        "بستايلي",
+        "حول الفكره",
+        "linkedin post",
+        "facebook post",
+        "قصه",
+        "story"
+      ],
+      "priority": 1
+    },
+    "review_draft": {
+      "label": "fix a pasted draft and keep its voice",
+      "chain": [
+        "lint",
+        "voice-critic",
+        "voice-preserving-edit",
+        "slop-pattern-repair",
+        "slop-quality-gate",
+        "lint"
+      ],
+      "signals": [
+        "راجع",
+        "راجعلي",
+        "صلح",
+        "ظبط",
+        "عدل",
+        "review",
+        "edit this",
+        "fix this",
+        "نضف"
+      ],
+      "priority": 2
+    },
+    "audit_only": {
+      "label": "diagnose slop without rewriting",
+      "chain": [
+        "lint",
+        "slop-audit"
+      ],
+      "signals": [
+        "audit",
+        "فين الـai",
+        "فين ال ai",
+        "شكله ai",
+        "ai slop",
+        "من غير ما تعدل",
+        "بدون تعديل",
+        "حللي"
+      ],
+      "priority": 2
+    },
+    "series_episode": {
+      "label": "next episode of a series or build log",
+      "architecture": "C",
+      "chain": [
+        "workspace-recall",
+        "series-continuity-writer",
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "optional": [
+        "workspace-recall"
+      ],
+      "signals": [
+        "الجزء التاني",
+        "الجزء الجاي",
+        "الحلقه",
+        "episode",
+        "كمل السلسله",
+        "السلسله",
+        "build log",
+        "part 2",
+        "part 3",
+        "البوست اللي فات"
+      ],
+      "priority": 1
+    },
+    "technical_explainer": {
+      "label": "explain a technical concept in the voice",
+      "architecture": "C",
+      "chain": [
+        "technical-concept-storyteller",
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "اشرح",
+        "اشرحلي",
+        "explain",
+        "مفهوم",
+        "mmm",
+        "bayesian",
+        "attribution",
+        "incrementality",
+        "statistics",
+        "احصاء",
+        "mcp",
+        "tracking",
+        "capi"
+      ],
+      "priority": 1
+    },
+    "diagnostic_deep_dive": {
+      "label": "project notes or audit finding into a long reasoning post",
+      "architecture": "B",
+      "chain": [
+        "diagnostic-deep-dive-writer",
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "deep dive",
+        "ديب دايف",
+        "تحليل",
+        "notes",
+        "نوتس",
+        "لقيت في الحساب",
+        "audit finding",
+        "كنت بشتغل على",
+        "مشروع",
+        "case study",
+        "كيس ستادي"
+      ],
+      "priority": 1
+    },
+    "offer_post": {
+      "label": "launch or offer post with one CTA",
+      "architecture": "E",
+      "chain": [
+        "commercial-copy-director",
+        "written-as-spoken",
+        "strict-human-output",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "offer",
+        "عرض",
+        "لانش",
+        "launch",
+        "منتج",
+        "playbook",
+        "كورس",
+        "course",
+        "cta",
+        "بيع",
+        "خصم",
+        "prepilot"
+      ],
+      "priority": 1
+    },
+    "from_memory": {
+      "label": "post grounded in stored notes or past work",
+      "chain": [
+        "workspace-recall",
+        "create-from-brain",
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "من الnotes",
+        "من النوتس",
+        "second brain",
+        "سكند برين",
+        "من ملاحظاتي",
+        "فاكر",
+        "زي ما كتبت قبل كده",
+        "من الارشيف",
+        "archive",
+        "wiki"
+      ],
+      "priority": 1
+    },
+    "ideas": {
+      "label": "idea bank or calendar in the voice",
+      "chain": [
+        "content-matrix",
+        "niche-research",
+        "written-as-spoken"
+      ],
+      "optional": [
+        "niche-research"
+      ],
+      "signals": [
+        "افكار",
+        "أفكار",
+        "ideas",
+        "كالندر",
+        "calendar",
+        "content plan",
+        "matrix",
+        "اكتب عن ايه",
+        "انشر ايه"
+      ],
+      "priority": 1
+    },
+    "trend_topic": {
+      "label": "react to what is happening now",
+      "architecture": "F",
+      "chain": [
+        "niche-research",
+        "story-researcher",
+        "written-as-spoken",
+        "lint",
+        "voice-critic"
+      ],
+      "signals": [
+        "الاسبوع ده",
+        "النهارده",
+        "ترند",
+        "trend",
+        "خبر",
+        "news",
+        "لسه نازل",
+        "announced",
+        "اطلق"
+      ],
+      "priority": 1
+    },
+    "hooks": {
+      "label": "alternative first lines",
+      "chain": [
+        "hook-generator",
+        "lint"
+      ],
+      "signals": [
+        "hook",
+        "هوك",
+        "هوكس",
+        "اول سطر",
+        "opening line",
+        "افتتاحيه",
+        "بدايه البوست"
+      ],
+      "priority": 2
+    },
+    "carousel": {
+      "label": "carousel slides plus caption",
+      "architecture": "F",
+      "chain": [
+        "carousel-generator",
+        "written-as-spoken",
+        "visual-content-anti-slop",
+        "lint"
+      ],
+      "signals": [
+        "carousel",
+        "كاروسيل",
+        "كاروسل",
+        "سلايدز",
+        "slides"
+      ],
+      "priority": 2
+    },
+    "reel_script": {
+      "label": "short video script said out loud",
+      "chain": [
+        "reels-scripting",
+        "plain-spoken-writing",
+        "arabic-style-curator",
+        "lint"
+      ],
+      "signals": [
+        "reel",
+        "ريل",
+        "ريلز",
+        "سكربت",
+        "سكريبت",
+        "script",
+        "tiktok",
+        "shorts",
+        "فيديو"
+      ],
+      "priority": 2
+    },
+    "transcript_to_post": {
+      "label": "voice note or transcript into a post with his own words",
+      "chain": [
+        "voiceprint",
+        "written-as-spoken",
+        "lint"
+      ],
+      "signals": [
+        "transcript",
+        "تفريغ",
+        "فويس",
+        "voice note",
+        "ريكورد",
+        "تسجيل",
+        "قلته بصوتي"
+      ],
+      "priority": 2
+    },
+    "pinned_comment": {
+      "label": "first comment under a post",
+      "chain": [
+        "pinned-comment",
+        "lint"
+      ],
+      "signals": [
+        "pinned comment",
+        "اول كومنت",
+        "كومنت مثبت",
+        "first comment"
+      ],
+      "priority": 2
+    },
+    "visual": {
+      "label": "graphic or infographic brief for a post",
+      "chain": [
+        "graphic-designer",
+        "infographic-generator",
+        "visual-content-anti-slop"
+      ],
+      "optional": [
+        "infographic-generator"
+      ],
+      "signals": [
+        "جرافيك",
+        "graphic",
+        "infographic",
+        "انفوجرافيك",
+        "صوره للبوست",
+        "visual",
+        "ديزاين"
+      ],
+      "priority": 2
+    },
+    "presentation": {
+      "label": "deck, report or company profile copy outside a post",
+      "chain": [
+        "slop-router",
+        "visual-content-anti-slop",
+        "arabic-style-curator",
+        "strict-human-output",
+        "slop-quality-gate"
+      ],
+      "signals": [
+        "presentation",
+        "بريزنتيشن",
+        "deck",
+        "ديك",
+        "عرض تقديمي",
+        "بروفايل شركه",
+        "company profile",
+        "report design"
+      ],
+      "priority": 2
+    },
+    "score_post": {
+      "label": "score or predict a draft",
+      "chain": [
+        "lint",
+        "post-scorer"
+      ],
+      "signals": [
+        "score",
+        "سكور",
+        "قيم البوست",
+        "هيعمل كام",
+        "predict",
+        "benchmark"
+      ],
+      "priority": 2
+    },
+    "analytics": {
+      "label": "what is working in the published posts",
+      "chain": [
+        "analytics-dashboard"
+      ],
+      "signals": [
+        "analytics",
+        "اناليتكس",
+        "export",
+        "impressions",
+        "ايه اللي شغال",
+        "الارقام بتاعه البوستات"
+      ],
+      "priority": 2
+    },
+    "workspace_setup": {
+      "label": "build or feed the second brain before writing",
+      "chain": [
+        "creator-router"
+      ],
+      "signals": [
+        "اعمل second brain",
+        "ابني second brain",
+        "import",
+        "exports",
+        "chatgpt export",
+        "claude export",
+        "ارشف"
+      ],
+      "priority": 2
+    },
+    "long_form_narrative": {
+      "label": "long technical narrative outside the post format",
+      "chain": [
+        "conversational-narrative-router",
+        "voice-fidelity-reviewer"
+      ],
+      "signals": [
+        "مقال",
+        "article",
+        "newsletter",
+        "نيوزلتر",
+        "blog",
+        "بلوج"
+      ],
+      "priority": 2
+    },
+    "save_learning": {
+      "label": "persist a correction, explicit only",
+      "chain": [
+        "save-progress"
+      ],
+      "explicit_only": true,
+      "signals": [
+        "احفظ",
+        "save progress",
+        "افتكر ده",
+        "خليك فاكر",
+        "remember this",
+        "من هنا ورايح"
+      ],
+      "priority": 2
+    }
+  },
+  "modifiers": {
+    "saudi": {
+      "insert_before": "lint",
+      "node": "arabic-style-curator",
+      "signals": [
+        "سعودي",
+        "خليجي",
+        "saudi",
+        "ksa",
+        "gulf"
+      ]
+    },
+    "verify": {
+      "insert_after": "front",
+      "node": "story-researcher",
+      "signals": [
+        "رقم",
+        "ارقام",
+        "دراسه",
+        "research",
+        "سنه",
+        "حصل ايه",
+        "قصه",
+        "story",
+        "%"
+      ]
+    },
+    "strict": {
+      "insert_before": "lint",
+      "node": "strict-human-output",
+      "signals": [
+        "قواعدي",
+        "my rules",
+        "house style",
+        "strict"
+      ]
+    },
+    "facebook": {
+      "platform": "facebook",
+      "signals": [
+        "فيسبوك",
+        "facebook"
+      ]
+    }
+  },
+  "feedback": {
+    "lint": {
+      "denial-reveal": {
+        "owner": "slop-pattern-repair",
+        "ref": "references/anti-slop.md#11-denial-then-reveal",
+        "move": "rewrite from the mechanism, consequence or test"
+      },
+      "banned-word": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#13-banned-words",
+        "move": "replace with the plain verb or the actual number"
+      },
+      "clickbait": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#14-clickbait-and-guru-tone-found-in-the-old-archive",
+        "move": "open with the scene instead"
+      },
+      "dash": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#12-punctuation",
+        "move": "new line, comma or colon"
+      },
+      "period": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#12-punctuation",
+        "move": "drop the period"
+      },
+      "dot-ladder": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#14-clickbait-and-guru-tone-found-in-the-old-archive",
+        "move": "delete the ladder"
+      },
+      "ellipsis": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#12-punctuation",
+        "move": "end the breath plainly"
+      },
+      "quotes": {
+        "owner": "strict-human-output",
+        "ref": "references/voice-dna.md#2-written-as-spoken-defined",
+        "move": "colon, then the line as said"
+      },
+      "markup": {
+        "owner": "strict-human-output",
+        "ref": "references/voice-dna.md#7-what-the-voice-avoids",
+        "move": "remove headings and bold"
+      },
+      "exclamation": {
+        "owner": "strict-human-output",
+        "ref": "references/anti-slop.md#12-punctuation",
+        "move": "keep one at most, inside speech"
+      },
+      "fusha": {
+        "owner": "arabic-style-curator",
+        "ref": "references/voice-dna.md#7-what-the-voice-avoids",
+        "move": "say it the Egyptian way"
+      },
+      "long-line": {
+        "owner": "plain-spoken-writing",
+        "ref": "references/voice-dna.md#2-written-as-spoken-defined",
+        "move": "split into breaths"
+      },
+      "rhythm": {
+        "owner": "plain-spoken-writing",
+        "ref": "references/voice-dna.md#1-the-fingerprint-in-numbers",
+        "move": "add short reaction lines, split long ones"
+      },
+      "claim": {
+        "owner": "story-researcher",
+        "ref": "references/anti-slop.md#15-invented-proof",
+        "move": "source it or cut it"
+      },
+      "closer": {
+        "owner": "slop-pattern-repair",
+        "ref": "references/lexicon.md#8-closers",
+        "move": "one reflective line and a question"
+      },
+      "slogan-pair": {
+        "owner": "slop-pattern-repair",
+        "ref": "references/lexicon.md#8-closers",
+        "move": "one plain reflective line"
+      },
+      "hashtag": {
+        "owner": "written-as-spoken",
+        "ref": "references/architectures.md#platform-notes",
+        "move": "keep only the series tag"
+      },
+      "emoji": {
+        "owner": "written-as-spoken",
+        "ref": "references/lexicon.md#9-emoji",
+        "move": "one per 10 to 20 lines, on ironic lines"
+      }
+    },
+    "critic": {
+      "rewrite": {
+        "owner": "written-as-spoken",
+        "move": "back to step 2, mine a new angle"
+      },
+      "weak-hook": {
+        "owner": "hook-generator",
+        "move": "six options, keep two that pass lint"
+      },
+      "written-not-said": {
+        "owner": "plain-spoken-writing",
+        "move": "rebuild the line in speaking order"
+      },
+      "voice-flattened": {
+        "owner": "voice-preserving-edit",
+        "move": "restore the protected phrases"
+      },
+      "translated-arabic": {
+        "owner": "arabic-style-curator",
+        "move": "Egyptian syntax, English nouns only"
+      },
+      "unsourced": {
+        "owner": "story-researcher",
+        "move": "verify or drop"
+      },
+      "weak-offer": {
+        "owner": "commercial-copy-director",
+        "move": "one real objection, one proof, one CTA"
+      },
+      "generic-scene": {
+        "owner": "written-as-spoken",
+        "move": "add objects: times, metric names, a quoted line"
+      },
+      "technical-drift": {
+        "owner": "voice-fidelity-reviewer",
+        "move": "keep the reasoning, restore the speaker's cadence in long technical passages"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "node": "conversational-narrative-router",
+      "rule": "Keep the reasoning movement (friction, sharper question, concept, evidence, decision). Line layout, rhythm and punctuation come from references/voice-dna.md, so one breath per line wins over mixed paragraph lengths."
+    },
+    {
+      "node": "slop-audit",
+      "rule": "Ignore scripts/short_line_lint.py findings on posts in this voice. Stacked short lines are the house rhythm."
+    },
+    {
+      "node": "slop-pattern-repair",
+      "rule": "Short-line repair is off. Do not merge stacked lines into paragraphs."
+    },
+    {
+      "node": "strict-human-output",
+      "rule": "The house profile is active whenever the request came through written-as-spoken. That invocation is the activation signal."
+    },
+    {
+      "node": "hook-generator",
+      "rule": "The contradiction hook type must never become a denial-then-reveal. Every option passes lint before it is shown."
+    },
+    {
+      "node": "carousel-generator",
+      "rule": "Slides take stacked lines from beats 7 or 9. No named frameworks on slides."
+    },
+    {
+      "node": "reels-scripting",
+      "rule": "Script lines are spoken Egyptian, one breath each. No on-screen English sentences."
+    },
+    {
+      "node": "commercial-copy-director",
+      "rule": "Sale stays in the last three lines of architecture E. Only numbers the user supplied."
+    },
+    {
+      "node": "content-matrix",
+      "rule": "Every idea is written as a work tension plus a possible anchor, never as a headline."
+    }
+  ],
+  "shadowed": {
+    "post-writer": "written-as-spoken owns drafting for this voice",
+    "post-formatter": "named frameworks (PAS, AIDA, BAB) are banned inside posts in this voice",
+    "voice-builder": "the voice is already measured in references/voice-dna.md",
+    "newsletter-voice": "out of scope unless the user asks for a newsletter"
+  },
+  "limits": {
+    "max_repair_cycles": 3,
+    "on_limit": "rewrite the offending lines from scratch with written-as-spoken, then run lint once more"
+  }
+}
