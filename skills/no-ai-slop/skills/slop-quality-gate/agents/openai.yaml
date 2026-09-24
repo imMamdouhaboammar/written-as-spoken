@@ -1,0 +1,10 @@
+interface:
+  display_name: "Slop Quality Gate"
+  short_description: "Check fidelity, voice, rhythm, and over-editing."
+  brand_color: "#C93A2F"
+  default_prompt: "Use $slop-quality-gate to check this edited draft before I publish it."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

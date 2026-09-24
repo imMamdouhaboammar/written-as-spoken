@@ -1,0 +1,9 @@
+interface:
+  display_name: "Commercial Copy Director"
+  short_description: "Write specific, truthful copy"
+  default_prompt: "Use $commercial-copy-director to write this marketing copy around the audience, offer, objections, proof, and next real action."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

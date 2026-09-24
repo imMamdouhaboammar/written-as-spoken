@@ -1,0 +1,72 @@
+---
+name: visual-content-anti-slop
+description: Review or plan presentations, reports, brochures, documents, visual briefs, and Arabic RTL layouts for AI-design clichés, fake data, decorative copy, asset misuse, weak hierarchy, and Arabic rendering risks. Use when the requested deliverable has a visual or document-design component.
+---
+
+# Visual Content Anti-Slop
+
+This Skill governs **content and art-direction constraints** for visual deliverables. It does not claim the host can render or edit an image unless a compatible tool is actually available.
+
+## One job per page or slide
+
+For presentations, reports, proposals, brochures, and client files:
+
+- give each page or slide one primary communication job
+- build a clear reading sequence
+- preserve approved meaning and exact facts
+- do not repeat the title as body copy
+- do not add decorative copy to fill empty space
+- do not invent quotations, case studies, charts, statistics, screenshots, or portfolio work
+- use tables only when comparison is actually needed
+- keep labels short and body text readable
+- label genuine placeholders clearly
+
+## Anti-slop visual filter
+
+Do not default to generic AI-decoration patterns such as:
+
+- random gradients, neon, purple glow, glassmorphism, floating translucent cards
+- excessive rounding, shadows, icons, pills, badges, section numbers, or type sizes
+- random 3D/chrome/liquid objects, abstract blobs, decorative waves, unexplained dots or lines
+- robots, glowing brains, circuit-filled heads, futuristic tunnels, space, cyberpunk
+- fake dashboards, fake app screens, fake analytics, fake charts
+- stock teams pointing at screens, handshakes, rockets, light bulbs, targets, puzzle pieces, chess pieces, labyrinths, megaphones, magnifying glasses
+- floating social logos, purposeless laptop/device mockups, oversized quotation marks, decorative English labels
+- arbitrary diagonal layouts, busy-image text overlays, center-aligned long paragraphs
+
+Every visual element should support comprehension, hierarchy, brand recognition, navigation, comparison, or explanation. Whitespace is allowed.
+
+## Structure
+
+Prefer a clear grid, consistent margins, controlled spacing, hierarchy, readable typography, sufficient contrast, purposeful whitespace, consistent alignment, limited color roles, limited type roles, and real supplied assets.
+
+Use diagrams only when relationships need explanation, charts only when verified data exists, mockups only for real application/context, photography only when relevant, and icons only when they improve recognition or scanning.
+
+## Arabic visual work
+
+For Arabic presentations, graphics, documents, interfaces, or visuals:
+
+- use true RTL layout
+- use fonts that support Arabic shaping
+- render connected Arabic letters correctly
+- never reverse, mirror, or separate Arabic letters
+- verify similar forms and hamza/ligature behavior
+- check numeral and punctuation direction
+- inspect mixed Arabic-English lines
+- keep Latin brand names and logos in their original direction
+
+If the available tool cannot guarantee correct Arabic rendering, state that limitation rather than pretending the render is correct.
+
+## Asset control
+
+When the user supplies real assets:
+
+- use approved assets
+- do not replace real assets with generated substitutes
+- do not alter logos, packaging, or approved artwork unless requested
+- do not add watermarked stock images or fabricate event/client photos
+- if an asset is missing, use a clearly labelled neutral placeholder or redesign around the gap
+
+## Routed specialists
+
+Use `strict-human-output` for exact format and house-style constraints, `arabic-style-curator` for Arabic copy and RTL-language logic, and `slop-quality-gate` for final content fidelity.

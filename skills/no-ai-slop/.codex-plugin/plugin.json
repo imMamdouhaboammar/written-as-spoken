@@ -1,0 +1,59 @@
+{
+  "author": {
+    "name": "Mamdouh Aboammar",
+    "url": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/README.md"
+  },
+  "description": "A routed multi-Skill plugin for anti-slop editing, voice preservation, short-line and staccato cleanup, spoken and Arabic writing, strict house rules, truthful commercial copy, and visual-content review.",
+  "homepage": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/README.md",
+  "interface": {
+    "brandColor": "#C93A2F",
+    "brandColorDark": "#D04136",
+    "capabilities": [
+      "Route multiple full content Skills",
+      "Audit named slop patterns",
+      "Detect excessive short-line prose",
+      "Preserve writer voice",
+      "Write natural spoken prose",
+      "Handle Arabic dialect and code-switching",
+      "Apply strict house-style rules",
+      "Write truthful commercial copy",
+      "Build practical marketing playbooks",
+      "Review presentation and visual-content slop",
+      "Run a final quality gate"
+    ],
+    "category": "Productivity",
+    "composerIcon": "./.codex-plugin/assets/composer-icon.svg",
+    "defaultPrompt": [
+      "Clean this draft up and apply my strict writing rules: [paste draft]",
+      "Write this marketing piece in natural Egyptian Arabic without AI phrasing: [brief]",
+      "Review this presentation copy and design direction for content and RTL slop: [paste brief]"
+    ],
+    "developerName": "Mamdouh Aboammar",
+    "displayName": "Slop Curator",
+    "logo": "./.codex-plugin/assets/logo.svg",
+    "longDescription": "Slop Curator is a skills-only Plugin built as a connected set of full specialist Skills. It audits named slop patterns, detects excessive short-line and staccato formatting, preserves an existing writer voice, reconstructs natural spoken prose, handles Egyptian Arabic and Arabic-English code-switching, enforces portable or strict house-style rules, builds truthful commercial copy and practical marketing playbooks, reviews presentation and visual-content direction for AI-design clich\u00e9s and RTL risks, applies targeted repairs, and runs a final quality gate. The router loads only the Skills and policy profiles needed for the request so personal house rules do not become universal bans. No external server or authentication is required.",
+    "privacyPolicyURL": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/PRIVACY.md",
+    "shortDescription": "Curate writing and content",
+    "supportURL": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/SUPPORT.md",
+    "termsOfServiceURL": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/TERMS.md",
+    "websiteURL": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot/blob/main/plugins/no-ai-slop/README.md"
+  },
+  "keywords": [
+    "writing",
+    "editing",
+    "AI slop",
+    "voice",
+    "style",
+    "spoken writing",
+    "Egyptian Arabic",
+    "copywriting",
+    "playbooks",
+    "presentations",
+    "RTL"
+  ],
+  "license": "MIT",
+  "name": "no-ai-slop",
+  "repository": "https://github.com/imMamdouhaboammar/chatgpt-codex-plugin-autopilot",
+  "skills": "./skills/",
+  "version": "1.0.1"
+}

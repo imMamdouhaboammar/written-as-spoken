@@ -1,0 +1,10 @@
+interface:
+  display_name: "Slop Audit"
+  short_description: "Name slop patterns without rewriting the draft."
+  brand_color: "#C93A2F"
+  default_prompt: "Use $slop-audit to inspect this draft without rewriting it."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

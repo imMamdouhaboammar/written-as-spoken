@@ -1,0 +1,9 @@
+interface:
+  display_name: "Arabic Style Curator"
+  short_description: "Fix Arabic voice and AI phrasing"
+  default_prompt: "Use $arabic-style-curator to make this Arabic sound native to the requested dialect while preserving meaning and natural code-switching."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

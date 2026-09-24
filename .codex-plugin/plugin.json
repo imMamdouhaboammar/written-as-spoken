@@ -1,0 +1,44 @@
+{
+  "name": "written-as-spoken",
+  "version": "1.1.0",
+  "description": "Writes social media posts in Mamdouh Aboammar's Written as Spoken voice: Egyptian Arabic that reads like talk, a real story bridged to daily marketing work, paired with Conversational Narrative, Creator Workbench, and No AI Slop.",
+  "author": {
+    "name": "Mamdouh Aboammar",
+    "url": "https://github.com/imMamdouhaboammar"
+  },
+  "homepage": "https://github.com/imMamdouhaboammar/written-as-spoken",
+  "repository": "https://github.com/imMamdouhaboammar/written-as-spoken",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Written as Spoken",
+    "shortDescription": "Authentic Egyptian Arabic marketing & content voice",
+    "developerName": "Mamdouh Aboammar",
+    "category": "Creativity",
+    "brandColor": "#D946EF",
+    "brandColorDark": "#A855F7",
+    "capabilities": [
+      "Draft authentic Written as Spoken Egyptian Arabic posts",
+      "Run anti-slop mechanical linter",
+      "Bridge stories to marketing and agency decisions",
+      "Multi-part series continuity and technical narratives",
+      "Creator second-brain and living wiki retrieval"
+    ],
+    "defaultPrompt": [
+      "اكتبلي بوست بعد الساعة 5 بستايلي Written as Spoken",
+      "راجع البوست ده وتأكد إنه خالي تماماً من الـ AI Slop",
+      "حوّل الفكرة دي لبوست تقني تحليلي مع قصة واقعية"
+    ]
+  },
+  "keywords": [
+    "copywriting",
+    "arabic",
+    "egyptian",
+    "linkedin",
+    "social-media",
+    "tone-of-voice",
+    "anti-slop",
+    "conversational-narrative",
+    "creator-workbench"
+  ]
+}

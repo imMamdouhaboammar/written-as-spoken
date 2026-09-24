@@ -1,0 +1,12 @@
+interface:
+  display_name: "Slop Curator"
+  short_description: "Route anti-slop edits without flattening the writer."
+  brand_color: "#C93A2F"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/logo.svg"
+  default_prompt: "Use $slop-router to clean this draft with the minimum passes needed."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: true

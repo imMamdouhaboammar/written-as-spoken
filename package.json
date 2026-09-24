@@ -1,0 +1,27 @@
+{
+  "name": "written-as-spoken",
+  "version": "1.1.0",
+  "description": "Authentic Egyptian Arabic marketing voice engine, paired with linked skills: Conversational Narrative, Creator Workbench, and No AI Slop.",
+  "type": "module",
+  "scripts": {
+    "test": "bun scripts/selftest.mjs",
+    "lint": "bun scripts/lint.mjs"
+  },
+  "keywords": [
+    "writing",
+    "social-posts",
+    "voice",
+    "tone-of-voice",
+    "anti-slop",
+    "egyptian-arabic",
+    "conversational-narrative",
+    "creator-workbench"
+  ],
+  "author": "Mamdouh Aboammar <mamdouhfces1997@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/imMamdouhaboammar/written-as-spoken#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imMamdouhaboammar/written-as-spoken.git"
+  }
+}

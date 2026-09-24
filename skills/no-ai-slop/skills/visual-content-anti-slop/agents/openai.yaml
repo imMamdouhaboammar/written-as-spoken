@@ -1,0 +1,9 @@
+interface:
+  display_name: "Visual Content Anti-Slop"
+  short_description: "Review visual and RTL slop"
+  default_prompt: "Use $visual-content-anti-slop to review this presentation or design brief for hierarchy, fake content, AI-design clichés, and Arabic RTL risks."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

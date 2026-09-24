@@ -1,0 +1,30 @@
+{
+  "name": "written-as-spoken",
+  "displayName": "Written as Spoken",
+  "version": "1.1.0",
+  "description": "Writes social media posts in Mamdouh Aboammar's Written as Spoken voice: Egyptian Arabic that reads like talk, a real story bridged to daily marketing work, and a linter that blocks AI slop and denial-then-reveal contrasts. Integrates linked skill suites: Conversational Narrative, Creator Workbench, and No AI Slop.",
+  "author": {
+    "name": "Mamdouh Aboammar",
+    "url": "https://github.com/imMamdouhaboammar"
+  },
+  "homepage": "https://github.com/imMamdouhaboammar/written-as-spoken",
+  "repository": "https://github.com/imMamdouhaboammar/written-as-spoken",
+  "keywords": [
+    "copywriting",
+    "arabic",
+    "egyptian",
+    "linkedin",
+    "social-media",
+    "tone-of-voice",
+    "anti-slop",
+    "conversational-narrative",
+    "creator-workbench",
+    "content-creation"
+  ],
+  "skills": [
+    "./",
+    "./skills/conversational-narrative",
+    "./skills/creator-workbench",
+    "./skills/no-ai-slop"
+  ]
+}

@@ -1,0 +1,10 @@
+interface:
+  display_name: "Voice-Preserving Edit"
+  short_description: "Edit the draft without sanding away the writer."
+  brand_color: "#C93A2F"
+  default_prompt: "Use $voice-preserving-edit to edit this while keeping my voice."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false

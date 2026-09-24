@@ -1,0 +1,10 @@
+interface:
+  display_name: "Slop Pattern Repair"
+  short_description: "Fix specific recurring slop patterns in context."
+  brand_color: "#C93A2F"
+  default_prompt: "Use $slop-pattern-repair to fix only the recurring slop patterns in this draft."
+policy:
+  products:
+    - CHAT
+    - CODEX
+  allow_implicit_invocation: false
