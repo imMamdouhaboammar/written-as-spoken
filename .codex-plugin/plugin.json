@@ -12,7 +12,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Written as Spoken",
-    "shortDescription": "Authentic Egyptian Arabic marketing & content voice",
+    "shortDescription": "Authentic Egyptian voice",
+    "longDescription": "Written as Spoken drafts authentic social media posts in Mamdouh Aboammar's signature Egyptian Arabic voice: language that reads like real talk, anchored by actual lived stories bridged directly to daily marketing and business decisions. It serves as the unified front door to three integrated specialist skill suites: Conversational Narrative (practitioner deep dives, technical storytelling, and multi-part series continuity), Creator Workbench (second-brain memory retrieval, living wiki management, and content matrices), and No AI Slop (mechanical anti-slop editing and strict house rules). The plugin dynamically routes requests to the right specialist skills, drafts content across six proven narrative architectures, and runs a deterministic linter that flags em dashes, denial-then-reveal formulas, fake certainty, and buzzwords with actionable repair plans.",
     "developerName": "Mamdouh Aboammar",
     "category": "Creativity",
     "brandColor": "#D946EF",
