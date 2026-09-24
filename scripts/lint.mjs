@@ -2,8 +2,11 @@
 // Mechanical checks for Written as Spoken drafts.
 // Usage: node lint.mjs <draft.txt> [--json]
 // Exit 0 when there are no BLOCK findings, 1 otherwise, 2 on usage errors.
+// Each finding carries the skill that owns its repair, read from references/routing-map.json.
 
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');
@@ -56,8 +59,17 @@ const DENIAL_LINE = [
 // "مش" used as a qualifier, not a setup for a reveal.
 const QUALIFIER = /(^|\s)مش\s+(معنى|شرط|لازم|عارف|قادر|فاهم|هنا|كل)(\s|$)/;
 
+let feedback = {};
+try {
+  const mapPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'references', 'routing-map.json');
+  feedback = JSON.parse(readFileSync(mapPath, 'utf8')).feedback?.lint || {};
+} catch {
+  // The linter still works on its own when the routing map is not shipped next to it.
+}
+
 const findings = [];
-const add = (level, line, rule, msg) => findings.push({ level, line, rule, msg });
+const add = (level, line, rule, msg) =>
+  findings.push({ level, line, rule, msg, owner: feedback[rule]?.owner || null, move: feedback[rule]?.move || null });
 
 const firstWord = (s) => s.trim().replace(/^[وف]?(ال)?/, '').split(/\s+/)[0] || '';
 const hasNeg = (s) => /(^|\s)(مش|مو|ليس|ليست|مبي\S*|مابي\S*)(\s|$)/.test(s);
@@ -167,10 +179,30 @@ for (let i = findings.length - 1; i >= 0; i--) {
 
 const blocks = findings.filter((f) => f.level === 'BLOCK').length;
 
+// Repair plan: which skill fixes which lines, BLOCK owners first.
+const repairs = {};
+for (const f of findings) {
+  if (!f.owner) continue;
+  const r = (repairs[f.owner] ||= { blocks: 0, warns: 0, lines: [], rules: [] });
+  f.level === 'BLOCK' ? r.blocks++ : r.warns++;
+  if (f.line && !r.lines.includes(f.line)) r.lines.push(f.line);
+  if (!r.rules.includes(f.rule)) r.rules.push(f.rule);
+}
+const plan = Object.entries(repairs)
+  .sort((a, b) => b[1].blocks - a[1].blocks || b[1].warns - a[1].warns)
+  .map(([owner, r]) => ({ owner, ...r }));
+
 if (asJson) {
-  console.log(JSON.stringify({ file, stats, blocks, findings }, null, 2));
+  console.log(JSON.stringify({ file, stats, blocks, findings, plan }, null, 2));
 } else {
-  for (const f of findings) console.log(`${f.level.padEnd(5)} ${f.line ? `L${f.line}` : '--'}  [${f.rule}] ${f.msg}`);
+  for (const f of findings) {
+    const hint = f.owner ? `  -> ${f.owner}` : '';
+    console.log(`${f.level.padEnd(5)} ${f.line ? `L${f.line}` : '--'}  [${f.rule}] ${f.msg}${hint}`);
+  }
+  if (plan.length) {
+    console.log('\nrepair plan');
+    for (const p of plan) console.log(`  ${p.owner}: ${p.rules.join(', ')}${p.lines.length ? ` (L${p.lines.join(', L')})` : ''}`);
+  }
   console.log(
     `\n${stats.lines} lines, ${stats.avgWords} words/line, ${stats.shortLinePct}% short, ${stats.latinPct}% English, ${stats.emoji} emoji`,
   );

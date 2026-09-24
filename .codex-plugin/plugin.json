@@ -1,6 +1,6 @@
 {
   "name": "written-as-spoken",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Writes social media posts in Mamdouh Aboammar's Written as Spoken voice: Egyptian Arabic that reads like talk, a real story bridged to daily marketing work, paired with Conversational Narrative, Creator Workbench, and No AI Slop.",
   "author": {
     "name": "Mamdouh Aboammar",
@@ -19,6 +19,7 @@
     "brandColorDark": "#A855F7",
     "capabilities": [
       "Draft authentic Written as Spoken Egyptian Arabic posts",
+      "Route each request across the linked suites and send lint failures to the skill that repairs them",
       "Run anti-slop mechanical linter",
       "Bridge stories to marketing and agency decisions",
       "Multi-part series continuity and technical narratives",
